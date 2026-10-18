@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ملفي الشخصي | تعلّم</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #182230;
+    }
+    header {
+      background: #fff;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5eaf1;
+    }
+    header a { color: #2457d6; text-decoration: none; }
+    main { max-width: 900px; margin: 35px auto; padding: 0 18px; }
+    .welcome, .card {
+      background: white;
+      border: 1px solid #e5eaf1;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .avatar {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #e4ecff;
+      color: #2457d6;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    h1 { margin: 8px 0; font-size: 26px; }
+    h2 { font-size: 19px; margin-top: 0; }
+    .muted { color: #667085; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .stat {
+      background: #f7f9fc;
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .number { font-size: 27px; font-weight: bold; margin: 10px 0; }
+    .progress {
+      height: 9px;
+      background: #e7ecf3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bar { height: 100%; width: 0; background: #2563eb; }
+    .course {
+      padding: 15px 0;
+      border-bottom: 1px solid #edf0f5;
+    }
+    .course:last-child { border-bottom: 0; }
+    .course-title { font-weight: bold; margin-bottom: 10px; }
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      background: #2457d6;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .btn-danger { background: #fff0f0; color: #b42318; }
+    #message { margin: 15px 0; color: #b42318; }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; }
+      header { padding: 15px; }
+      main { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>📘 تعلّم</strong>
+    <a href="index.html">العودة إلى الدورات ←</a>
+  </header>
+
+  <main>
+    <div id="message">جارٍ تحميل الملف الشخصي...</div>
+
+    <section class="welcome">
+      <div class="avatar">👤</div>
+      <p class="muted">ملفي الشخصي</p>
+      <h1 id="fullName">الطالب</h1>
+      <p id="email" class="muted"></p>
+      <p id="birthDate" class="muted"></p>
+      <p id="gender" class="muted"></p>
+      <a class="btn" href="index.html">متابعة التعلّم</a>
+    </section>
+
+    <section class="card">
+      <h2>📊 ملخص التعلّم</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="muted">الدروس المكتملة</div>
+          <div class="number" id="completedCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="muted">الدورات المكتملة</div>
+          <div class="number" id="coursesCompleted">0</div>
+        </div>
+        <div class="stat">
+          <div class="muted">التقدم الكلي</div>
+          <div class="number" id="overallPercent">0%</div>
+        </div>
+      </div>
+      <div class="progress" style="margin-top:20px">
+        <div class="bar" id="overallBar"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📚 تقدمي في الدورات</h2>
+      <div id="courseProgress">جارٍ تحميل التقدم...</div>
+    </section>
+
+    <section class="card">
+      <h2>⚙️ الحساب</h2>
+      <button class="btn btn-danger" id="logoutBtn">تسجيل الخروج</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>
