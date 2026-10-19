@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taallam | Certificate of Completion</title>
+
+  <style>
+    :root {
+      /* عدّل هذه القيم لتطابق ألوان styles.css في موقعك */
+      --brand: var(--primary-color, #183153);
+      --accent: var(--secondary-color, #16836B);
+      --paper: #ffffff;
+      --muted: #68778a;
+      --line: #dfe7ed;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #edf1f5;
+      color: var(--brand);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 22px;
+      background: var(--brand);
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: var(--accent);
+    }
+
+    .certificate {
+      position: relative;
+      width: min(100%, 1100px);
+      aspect-ratio: 297 / 210;
+      min-height: 550px;
+      margin: auto;
+      padding: 5.5% 8%;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 40px #18315318;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .certificate::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--line);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background: var(--accent);
+    }
+
+    .art {
+      position: absolute;
+      width: 29%;
+      height: 47%;
+      color: var(--accent);
+      opacity: .12;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .art.left {
+      left: -3%;
+      bottom: -3%;
+    }
+
+    .art.right {
+      right: -3%;
+      top: 4%;
+      transform: rotate(180deg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 3%;
+      font-size: clamp(17px, 2vw, 25px);
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: clamp(10px, 1vw, 13px);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 10px 0 8px;
+      font-size: clamp(27px, 4vw, 49px);
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: clamp(12px, 1.3vw, 16px);
+    }
+
+    .student {
+      max-width: 100%;
+      margin: 10px 0;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 3.6vw, 43px);
+      overflow-wrap: anywhere;
+    }
+
+    .course {
+      margin: 8px 0;
+      font-size: clamp(17px, 2vw, 25px);
+      font-weight: 700;
+    }
+
+    .description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(11px, 1.15vw, 14px);
+      line-height: 1.6;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      width: 100%;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 18px;
+      text-align: left;
+    }
+
+    .meta-label {
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .meta-value {
+      font-size: 12px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .qr-wrap {
+      text-align: center;
+      min-width: 82px;
+    }
+
+    .qr {
+      display: block;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 5px;
+      object-fit: contain;
+    }
+
+    .qr-caption {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 650px) {
+      body { padding: 8px; }
+      .certificate {
+        aspect-ratio: auto;
+        min-height: 660px;
+        padding: 45px 24px 25px;
+      }
+      .art { width: 40%; height: 30%; }
+      .footer { gap: 8px; }
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      body { padding: 0; background: white; }
+      .toolbar { display: none; }
+      .certificate {
+        width: 297mm;
+        height: 210mm;
+        min-height: 0;
+        max-width: none;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()">Print / Save PDF</button>
+    <button class="secondary" onclick="window.close()">Close</button>
+  </div>
+
+  <main class="certificate">
+    <div class="accent-bar"></div>
+
+    <!-- رسومات SVG تتغير حسب الدورة -->
+    <svg class="art left" viewBox="0 0 300 300" aria-hidden="true">
+      <g id="courseArt" fill="none" stroke="currentColor"
+         stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="80" cy="220" r="65"/>
+        <path d="M15 220h130M80 155v130"/>
+        <path d="M35 180l90 80M125 180l-90 80"/>
+      </g>
+    </svg>
+
+    <svg class="art right" viewBox="0 0 300 300" aria-hidden="true">
+      <g fill="none" stroke="currentColor"
+         stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="220" cy="80" r="55"/>
+        <path d="M190 80h60M220 50v60"/>
+        <path d="M170 145l40 40 70-70"/>
+      </g>
+    </svg>
+
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none"
+           aria-hidden="true">
+        <path d="M4 9Q12 5 20 11Q28 5 36 9V31Q28 27 20 33Q12 27 4 31Z"
+              stroke="currentColor" stroke-width="2.5"/>
+        <path d="M20 11V33" stroke="currentColor" stroke-width="2.5"/>
+      </svg>
+      <span>TAALLAM</span>
+    </div>
+
+    <div class="eyebrow">Recognition of Achievement</div>
+    <h1>CERTIFICATE</h1>
+    <div class="eyebrow">OF COMPLETION</div>
+
+    <p class="subtitle">This certificate is proudly presented to</p>
+    <h2 class="student" id="studentName">Student Name</h2>
+
+    <p class="subtitle">For successfully completing the course</p>
+    <div class="course" id="courseName">Course Name</div>
+
+    <p class="description">
+      In recognition of dedication to learning and successful completion
+      of the course requirements.
+    </p>
+
+    <div class="footer">
+      <div>
+        <div class="meta-label">DATE COMPLETED</div>
+        <div class="meta-value" id="completionDate">—</div>
+        <br>
+        <div class="meta-label">CERTIFICATE ID</div>
+        <div class="meta-value" id="certificateId">—</div>
+      </div>
+
+      <div class="qr-wrap">
+        <img class="qr" id="qrCode" alt="Certificate QR code">
+        <div class="qr-caption">CERTIFICATE ID</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const courses = {
+      programming: {
+        title: "Introduction to Programming",
+        art: `
+          <path d="M110 70L55 125L110 180"/>
+          <path d="M190 70L245 125L190 180"/>
+          <path d="M165 55L135 195"/>
+          <rect x="65" y="205" width="170" height="45" rx="8"/>
+          <path d="M85 225h35m15 0h40m15 0h25"/>
+        `
+      },
+      english: {
+        title: "English from Scratch",
+        art: `
+          <rect x="55" y="45" width="190" height="150" rx="18"/>
+          <path d="M90 85h115M90 115h90M90 145h65"/>
+          <circle cx="210" cy="215" r="30"/>
+          <path d="M195 215h30M210 200v30"/>
+          <path d="M40 230h80"/>
+        `
+      },
+      computer: {
+        title: "Computer Fundamentals",
+        art: `
+          <rect x="45" y="55" width="210" height="135" rx="12"/>
+          <path d="M150 190v35M110 225h80"/>
+          <rect x="75" y="240" width="150" height="25" rx="5"/>
+          <path d="M90 252h10m12 0h10m12 0h10m12 0h10"/>
+        `
+      },
+      math: {
+        title: "Everyday Mathematics",
+        art: `
+          <path d="M45 225L125 70L205 225Z"/>
+          <circle cx="215" cy="95" r="35"/>
+          <path d="M215 75v40M195 95h40"/>
+          <path d="M65 250h160M150 45v25"/>
+        `
+      },
+      career: {
+        title: "Career Readiness",
+        art: `
+          <rect x="60" y="100" width="180" height="130" rx="12"/>
+          <path d="M115 100V75h70v25M60 145h180"/>
+          <path d="M95 180l20 20 45-45"/>
+          <path d="M185 185h30"/>
+        `
+      },
+      safety: {
+        title: "Digital Safety",
+        art: `
+          <path d="M150 40L235 75V140Q225 205 150 250Q75 205 65 140V75Z"/>
+          <rect x="120" y="115" width="60" height="50" rx="8"/>
+          <path d="M132 115v-15a18 18 0 0136 0v15"/>
+          <circle cx="150" cy="137" r="5"/>
+          <path d="M150 142v10"/>
+        `
+      }
+    };
+
+    const courseId = params.get("course") || "programming";
+    const course = courses[courseId] || courses.programming;
+
+    const studentName = params.get("name") || "Student Name";
+    const date = params.get("date") ||
+      new Date().toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      });
+
+    const certificateId = params.get("id") || "TA-" +
+      crypto.randomUUID().split("-")[0].toUpperCase();
+
+    document.getElementById("studentName").textContent = studentName;
+    document.getElementById("courseName").textContent = course.title;
+    document.getElementById("completionDate").textContent = date;
+    document.getElementById("certificateId").textContent = certificateId;
+
+    document.getElementById("courseArt").innerHTML = course.art;
+
+    /*
+      QR يحمل رقم الشهادة فقط في هذا النموذج.
+      التحقق الحقيقي يحتاج صفحة verify.html وقاعدة بيانات.
+    */
+    const qr = new URL("https://api.qrserver.com/v1/create-qr-code/");
+    qr.searchParams.set("size", "180x180");
+    qr.searchParams.set("data", certificateId);
+    document.getElementById("qrCode").src = qr.toString();
+  </script>
+</body>
+</html>
