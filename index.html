@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="تعلّم ، منصة تعليمية عربية للتعلم الذاتي والدروس والاختبارات القصيرة.">
+<title>تعلّم  | تعلّم في أي وقت</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <span>تعلّم </span>
+    </div>
+
+    <nav class="navlinks">
+      <a href="#courses">الدورات</a>
+      <a href="#progress">تقدمي</a>
+      <a href="#about">عن المنصة</a>
+    </nav>
+
+    
+<div class="hero-buttons">
+  <button class="btn btn-primary"
+    onclick="document.querySelector('#courses').scrollIntoView({behavior:'smooth'})">
+    ابدأ التعلّم
+  </button>
+
+
+<div id="accountNav">
+  <a href="login.html" class="btn btn-light" id="loginNav">
+    تسجيل الدخول
+  </a>
+
+  <a href="profile.html" class="btn btn-primary"
+     id="profileNav" style="display:none">
+    👤
+  </a>
+</div>
+
+</div>
+
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">معرفة أقرب إليك</span>
+        <h1>اتعلّم اليوم، وقرّب <span>مستقبلك</span></h1>
+        <p>
+          مساحة تعليمية باللغة العربية تساعدك على اكتساب مهارات جديدة،
+          من أي مكان وفي الوقت المناسب ليك.
+        </p>
+
+        <div class="searchbar">
+          <input id="searchInput" type="search"
+            placeholder="ابحث عن دورة أو مهارة..."
+            aria-label="ابحث عن دورة">
+          <button class="btn btn-primary" id="searchBtn">ابحث</button>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div>
+          <div class="art-icon">📚</div>
+          <h2 style="margin:0">خطوة صغيرة كل يوم</h2>
+          <p style="color:#e0fff0;margin:5px 0">
+            ابدأ بدرس قصير، وواصل التعلّم حسب وقتك.
+          </p>
+        </div>
+
+        <div class="art-stat">
+          <div class="stat">
+            <strong id="courseCount">6</strong>
+            <span>دورات تجريبية</span>
+          </div>
+          <div class="stat">
+            <strong id="completedCount">0</strong>
+            <span>دروس مكتملة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="courses">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>اكتشف الدورات</h2>
+          <p>محتوى تجريبي نطوره حسب احتياجات الطلاب.</p>
+        </div>
+        <span class="notice">النسخة الأولى · مجانية</span>
+      </div>
+
+      <div class="categories" id="categories"></div>
+      <div class="grid" id="courseGrid"></div>
+    </div>
+  </section>
+
+  <section id="progress">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>لوحة تحكم المتعلم</h2>
+          <p>تابع إنجازك ودوراتك المحفوظة من مكان واحد.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <span class="dashboard-icon">📚</span>
+          <p>الدروس المكتملة</p>
+          <h3 id="dashboardCompleted">0</h3>
+        </div>
+
+        <div class="dashboard-card">
+          <span class="dashboard-icon">❤️</span>
+          <p>الدورات المحفوظة</p>
+          <h3 id="dashboardSaved">0</h3>
+        </div>
+
+        <div class="dashboard-card">
+          <span class="dashboard-icon">🎯</span>
+          <p>نسبة الإنجاز الإجمالية</p>
+          <h3><span id="dashboardPercent">0</span>%</h3>
+        </div>
+      </div>
+
+      <div class="progress-panel">
+        <div>
+          <h3>واصل من حيث وصلت</h3>
+          <p id="progressText">ابدأ أول درس، وسيظهر تقدمك هنا.</p>
+        </div>
+        <div class="progress-number">
+          <span id="progressPercent">0</span>
+          <span style="font-size:1rem">٪</span>
+        </div>
+      </div>
+
+      <p class="notice">
+        ملاحظة: هذه نسخة تجريبية. تقدّمك يُحفظ في متصفحك، وعند تسجيل الدخول
+        يُحفظ أيضًا في حسابك ويمكنك متابعته من أي جهاز.
+      </p>
+
+      <div class="saved-section">
+        <div class="section-head">
+          <div>
+            <h2>دوراتي المحفوظة</h2>
+            <p>الدورات التي اخترت حفظها للرجوع إليها لاحقًا.</p>
+          </div>
+        </div>
+        <div class="grid" id="savedCoursesGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>عن تعلّم </h2>
+          <p>نبدأ ببساطة، ثم نبني المنصة مع احتياجات المتعلمين.</p>
+        </div>
+      </div>
+
+      <div class="progress-panel">
+        <div>
+          <h3>التعلّم متاح للجميع</h3>
+          <p>
+            هدفنا تجربة واضحة وخفيفة، تعمل على الهاتف والكمبيوتر.
+            الدروس الحالية أمثلة أولية وليست اعتمادًا أكاديميًا أو شهادة رسمية.
+          </p>
+        </div>
+        <div style="font-size:2.2rem">🌍</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <strong>تعلّم </strong>
+      <p>منصة تعليمية قيد التطوير.</p>
+    </div>
+    <div>
+      <strong>نسخة تجريبية</strong>
+      <p>نتعلم معًا ونبني المستقبل.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="lessonModal"
+  role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="closeModal" aria-label="إغلاق">×</button>
+    <h2 id="modalTitle">عنوان الدرس</h2>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

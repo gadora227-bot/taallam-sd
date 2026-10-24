@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="إنشاء حساب طالب جديد في منصة تعلّم">
+  <title>إنشاء حساب | تعلّم</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .signup-page {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px #0000000d;
+      font-family: 'Cairo', Tahoma, Arial, sans-serif;
+    }
+
+    .signup-page form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .signup-page input,
+    .signup-page select,
+    .signup-page button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    .signup-page input,
+    .signup-page select {
+      border: 1px solid #d5e2da;
+      background: #fff;
+    }
+
+    .signup-page label {
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .signup-page button {
+      cursor: pointer;
+      border: 0;
+      margin-top: 10px;
+    }
+
+    #signup-message {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container signup-page">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <span>تعلّم</span>
+    </div>
+
+    <h1>إنشاء حساب جديد</h1>
+    <p>أنشئ حسابك وابدأ رحلتك التعليمية.</p>
+
+    <form id="signup-form">
+      <label for="full-name">الاسم الكامل</label>
+      <input id="full-name" name="full_name"
+             type="text" autocomplete="name"
+             maxlength="100" required
+             placeholder="أدخل اسمك الكامل">
+
+      <label for="birth-date">تاريخ الميلاد</label>
+      <input id="birth-date" name="birth_date"
+             type="date" autocomplete="bday"
+             required>
+
+      <label for="gender">الجنس</label>
+      <select id="gender" name="gender" required>
+        <option value="">اختر الجنس</option>
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+        <option value="prefer_not_to_say">أفضل عدم الإفصاح</option>
+      </select>
+
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" name="email"
+             type="email" autocomplete="email"
+             maxlength="254" required
+             placeholder="name@example.com">
+
+      <label for="password">كلمة المرور</label>
+      <input id="password" name="password"
+             type="password" autocomplete="new-password"
+             minlength="8" maxlength="72" required
+             placeholder="8 أحرف على الأقل">
+
+      <label for="confirm-password">تأكيد كلمة المرور</label>
+      <input id="confirm-password" name="confirm_password"
+             type="password" autocomplete="new-password"
+             minlength="8" maxlength="72" required
+             placeholder="أعد كتابة كلمة المرور">
+
+      <button class="btn btn-primary"
+              id="signup-button" type="submit">
+        إنشاء الحساب
+      </button>
+
+      <p id="signup-message" role="status"
+         aria-live="polite"></p>
+    </form>
+
+    <p>لديك حساب بالفعل؟ <a href="login.html">سجّل الدخول</a></p>
+    <p><a href="index.html">العودة إلى الصفحة الرئيسية</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>
