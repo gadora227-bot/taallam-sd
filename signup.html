@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src https:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' https://zryeqcmbmfojvjwkcqlp.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23087f5b%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3E%D8%AA%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="إنشاء حساب طالب جديد في منصة تعلّم">
+  <meta name="theme-color" content="#0d2b33">
+  <title>إنشاء حساب | تعلّم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container signup-page">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <span>تعلّم</span>
+    </div>
+
+    <h1>إنشاء حساب جديد</h1>
+    <p>أنشئ حسابك وابدأ رحلتك التعليمية.</p>
+
+    <form id="signup-form">
+      <label for="full-name">الاسم الكامل</label>
+      <input id="full-name" name="full_name"
+             type="text" autocomplete="name"
+             maxlength="100" required
+             placeholder="أدخل اسمك الكامل">
+
+      <label for="birth-date">تاريخ الميلاد</label>
+      <input id="birth-date" name="birth_date"
+             type="date" autocomplete="bday"
+             required>
+
+      <label for="gender">الجنس</label>
+      <select id="gender" name="gender" required>
+        <option value="">اختر الجنس</option>
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+        <option value="prefer_not_to_say">أفضل عدم الإفصاح</option>
+      </select>
+
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" name="email"
+             type="email" autocomplete="email"
+             maxlength="254" required
+             placeholder="name@example.com">
+
+      <label for="password">كلمة المرور</label>
+      <input id="password" name="password"
+             type="password" autocomplete="new-password"
+             minlength="8" maxlength="72" required
+             placeholder="8 أحرف على الأقل">
+
+      <label for="confirm-password">تأكيد كلمة المرور</label>
+      <input id="confirm-password" name="confirm_password"
+             type="password" autocomplete="new-password"
+             minlength="8" maxlength="72" required
+             placeholder="أعد كتابة كلمة المرور">
+
+      <button class="btn btn-primary"
+              id="signup-button" type="submit">
+        إنشاء الحساب
+      </button>
+
+      <p class="legal-note">بإنشاء حساب فإنك توافق على <a href="terms.html" target="_blank" rel="noopener">الشروط والأحكام</a>
+         و<a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>.</p>
+
+      <p id="signup-message" role="status"
+         aria-live="polite"></p>
+    </form>
+
+    <p>لديك حساب بالفعل؟ <a href="login.html">سجّل الدخول</a></p>
+    <p><a href="index.html">العودة إلى الصفحة الرئيسية</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="config.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>

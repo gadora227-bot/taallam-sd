@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /profile.html
+Disallow: /certificate.html
+Disallow: /reset.html
+Disallow: /admin.html

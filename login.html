@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src https:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' https://zryeqcmbmfojvjwkcqlp.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23087f5b%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3E%D8%AA%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2b33">
+  <title>تسجيل الدخول | تعلّم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container login-page">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <span>تعلّم</span>
+    </div>
+
+    <h1>مرحبًا بعودتك</h1>
+    <p>سجّل الدخول لمتابعة دروسك التعليمية.</p>
+
+    <form id="login-form">
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" type="email" autocomplete="email"
+             required placeholder="name@example.com">
+
+      <label for="password">كلمة المرور</label>
+      <input id="password" type="password"
+             autocomplete="current-password" required>
+
+      <button class="btn btn-primary" id="login-button" type="submit">
+        تسجيل الدخول
+      </button>
+
+      <p id="login-message" role="status" aria-live="polite"></p>
+    </form>
+
+    <p><a href="forgot.html">نسيت كلمة المرور؟</a></p>
+    <p>ليس لديك حساب؟ <a href="signup.html">أنشئ حسابًا جديدًا</a></p>
+    <p><a href="index.html">العودة إلى الصفحة الرئيسية</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="config.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

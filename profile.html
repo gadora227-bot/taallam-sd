@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src https:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' https://zryeqcmbmfojvjwkcqlp.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23087f5b%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3E%D8%AA%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0d2b33">
+  <title>ملفي الشخصي | تعلّم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="profile-page">
+    <a href="index.html" class="btn btn-light">← العودة إلى الرئيسية</a>
+
+    <section class="profile-card" style="margin-top:20px">
+      
+<div class="profile-avatar" aria-hidden="true">ت</div>
+
+<h1>ملفي الشخصي</h1>
+
+<p>أهلاً بك في منصة تعلّم.</p>
+
+<div class="profile-field">
+  <label>الاسم</label>
+  <p id="profileDisplayName">جارٍ تحميل الاسم...</p>
+</div>
+
+<div class="profile-field">
+  <label>البريد الإلكتروني</label>
+  <p id="profileDisplayEmail">جارٍ تحميل البريد الإلكتروني...</p>
+</div>
+
+<button class="btn btn-primary" id="editProfileBtn" type="button">
+  تعديل البروفايل
+</button>
+<a class="btn btn-light" id="adminLink" href="admin.html" hidden>لوحة الإدارة</a>
+
+      
+<div class="today-card" id="todayCard" hidden>
+  <div class="streak-box"><strong id="streakCount">0</strong><span>أيام متتالية</span></div>
+  <div>
+    <div class="goal-line"><span>هدف اليوم (دروس)</span><strong id="todayCount">0 من 1</strong></div>
+    <div class="goal-track"><span id="goalBar"></span></div>
+    <ul class="badges" id="badgeList" aria-label="الشارات"></ul>
+  </div>
+</div>
+
+<div class="profile-stats">
+  <div class="stat-card">
+        <p>الدروس المكتملة</p>
+    <strong id="profileCompleted">—</strong>
+  </div>
+
+  <div class="stat-card">
+        <p>نسبة التقدم</p>
+    <strong id="profilePercent">—%</strong>
+  </div>
+
+  <div class="stat-card">
+        <p>الدورات المحفوظة</p>
+    <strong id="profileSaved">—</strong>
+  </div>
+</div>
+
+<section class="my-courses">
+  <h2>دوراتي</h2>
+  <p class="courses-subtitle">
+    تابع تعلّمك، وأكمل من حيث توقفت.
+  </p>
+
+  <div id="myCoursesList">
+    <p>جارٍ تحميل دوراتك...</p>
+  </div>
+</section>
+
+<section class="my-courses" id="certificatesSection">
+  <h2>شهاداتي</h2>
+  <p class="courses-subtitle">
+    الشهادات التي حصلت عليها بعد إكمال الدورات.
+  </p>
+
+  <div id="certificatesList">
+    <div class="course-empty">
+      ستظهر شهاداتك هنا بعد إكمال الدورات وإصدار الشهادات.
+    </div>
+  </div>
+</section>
+
+<section class="my-courses">
+<h2>المفضلة</h2>
+  <p class="courses-subtitle">
+    الدورات التي حفظتها لتعود إليها لاحقًا.
+  </p>
+  <div id="savedCoursesList">
+    <p>جارٍ تحميل الدورات المحفوظة...</p>
+  </div>
+</section>
+
+
+
+
+      
+<div id="profileEditPanel" hidden>
+  <h2>تعديل بياناتي</h2>
+
+  <form id="profileForm">
+    <div class="profile-field">
+      <label for="fullName">الاسم</label>
+      <input
+        id="fullName"
+        type="text"
+        maxlength="100"
+        placeholder="اكتب اسمك"
+        required
+      >
+    </div>
+
+    <div class="profile-field">
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" type="email" readonly>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn btn-primary" type="submit">
+        حفظ التعديلات
+      </button>
+
+      <button class="btn btn-light" id="cancelEditBtn" type="button">
+        إلغاء
+      </button>
+    </div>
+  </form>
+
+  <p id="profileMessage" role="status"></p>
+</div>
+
+<div class="profile-actions">
+  <button class="btn btn-light" id="logoutBtn" type="button">
+    تسجيل الخروج
+  </button>
+</div>
+    
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="config.js"></script>
+
+  
+<script src="platform.js"></script>
+<script src="profile.js"></script>
+
+</body>
+</html>

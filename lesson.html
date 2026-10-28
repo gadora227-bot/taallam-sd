@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src https:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' https://zryeqcmbmfojvjwkcqlp.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23087f5b%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3E%D8%AA%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2b33">
+  <title>الدرس | تعلّم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="simple-header"><div class="container nav">
+    <a class="brand" href="index.html"><span class="logo">ت</span><span>تعلّم</span></a>
+    <div id="accountNav">
+      <a href="login.html" class="btn btn-light" id="loginNav">تسجيل الدخول</a>
+      <a href="profile.html" class="btn btn-primary" id="profileNav" style="display:none">حسابي</a>
+    </div>
+  </div></header>
+  <main class="page">
+    <a class="crumb" id="backToCourse" href="index.html#courses">← العودة إلى الدورة</a>
+    <div class="player">
+      <article class="player-main" id="lessonView" aria-live="polite"><p>جارٍ التحميل…</p></article>
+      <aside class="player-side" aria-label="دروس الدورة">
+        <h2 id="sideTitle">دروس الدورة</h2>
+        <ul class="lesson-list" id="sideList"></ul>
+      </aside>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="config.js"></script>
+  <script src="platform.js"></script>
+  <script src="lesson.js"></script>
+</body>
+</html>

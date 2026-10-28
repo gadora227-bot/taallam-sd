@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src https:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self' https://zryeqcmbmfojvjwkcqlp.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23087f5b%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3E%D8%AA%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2b33">
+  <meta name="robots" content="noindex">
+  <title>لوحة الإدارة | تعلّم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="simple-header"><div class="container nav">
+    <a class="brand" href="index.html"><span class="logo">ت</span><span>تعلّم · الإدارة</span></a>
+    <a class="btn btn-light" href="index.html">العودة إلى الموقع</a>
+  </div></header>
+
+  <main class="page">
+    <div id="adminGate" class="empty">جارٍ التحقق من الصلاحيات…</div>
+
+    <div id="adminApp" class="admin-grid" hidden>
+      <aside class="admin-side">
+        <h2>الدورات</h2>
+        <button class="btn btn-primary" id="newCourse" type="button" style="width:100%">+ دورة جديدة</button>
+        <ul id="courseList"></ul>
+      </aside>
+      <section>
+        <div class="admin-panel" id="coursePanel"></div>
+        <div class="admin-panel" id="lessonPanel" style="margin-top:20px" hidden></div>
+        <p class="status" id="adminStatus" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="config.js"></script>
+  <script src="platform.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
